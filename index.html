@@ -10,6 +10,8 @@
   <div class="container">
     <h2>Study Session Logger</h2>
 
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
     <input type="text" id="subject" placeholder="Enter subject">
 
     <h3 id="timer">00:00</h3>
@@ -18,6 +20,12 @@
     <button onclick="endSession()">End Session</button>
 
     <p id="result"></p>
+
+    <h4>Total Studied Today</h4>
+    <p id="totalTime">0 minutes 0 seconds</p>
+
+    <h4>Recent Sessions</h4>
+    <ul id="history"></ul>
   </div>
 
   <script src="script.js"></script>
