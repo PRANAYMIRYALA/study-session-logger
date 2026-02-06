@@ -11,24 +11,33 @@ body {
 
 .container {
   background: #ffffff;
-  padding: 30px;
+  padding: 25px;
   border-radius: 12px;
-  width: 320px;
+  width: 340px;
   text-align: center;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.toggle-btn {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 input {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  font-size: 14px;
 }
 
 button {
@@ -40,22 +49,43 @@ button {
   font-weight: bold;
 }
 
-button:first-of-type {
+button:nth-of-type(2) {
   background-color: #4CAF50;
   color: white;
 }
 
-button:last-of-type {
+button:nth-of-type(3) {
   background-color: #f44336;
   color: white;
 }
 
 #timer {
-  font-size: 28px;
-  margin: 15px 0;
+  font-size: 26px;
+  margin: 10px 0;
 }
 
 #result {
-  margin-top: 10px;
   font-weight: bold;
+  margin-top: 10px;
+}
+
+ul {
+  padding-left: 20px;
+  text-align: left;
+}
+
+/* DARK MODE */
+body.dark {
+  background: #121212;
+}
+
+body.dark .container {
+  background: #1e1e1e;
+  color: white;
+}
+
+body.dark input {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
 }
