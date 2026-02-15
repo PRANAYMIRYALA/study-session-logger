@@ -3,10 +3,10 @@ let timer = null;
 let totalSeconds = 0;
 let history = [];
 
+// START SESSION
 function startSession() {
   const subject = document.getElementById("subject").value.trim();
 
-  // INPUT VALIDATION
   if (subject === "") {
     alert("Please enter a subject name");
     return;
@@ -20,14 +20,21 @@ function startSession() {
   timer = setInterval(() => {
     seconds++;
 
+    // ⭐ Progress Bar Movement
+    document.getElementById("progressBar").style.width =
+      (seconds % 100) + "%";
+
     let mins = Math.floor(seconds / 60);
     let secs = seconds % 60;
 
     document.getElementById("timer").innerText =
-      mins + ":" + (secs < 10 ? "0" + secs : secs);
+      String(mins).padStart(2, "0") + ":" +
+      String(secs).padStart(2, "0");
+
   }, 1000);
 }
 
+// END SESSION
 function endSession() {
   if (timer === null) return;
 
@@ -35,39 +42,40 @@ function endSession() {
   timer = null;
 
   const subject = document.getElementById("subject").value.trim();
+
   let mins = Math.floor(seconds / 60);
   let secs = seconds % 60;
 
-  // RESULT MESSAGE
   document.getElementById("result").innerText =
     `You studied ${subject} for ${mins} minutes and ${secs} seconds.`;
 
-  // DAILY TOTAL
   totalSeconds += seconds;
+
   updateTotalTime();
+  addToHistory(subject, mins, secs);
 
-  // SESSION HISTORY
-  history.unshift(`${subject} – ${mins}m ${secs}s`);
-  if (history.length > 5) history.pop();
-  updateHistory();
-
-  seconds = 0;
-  document.getElementById("timer").innerText = "00:00";
+  // reset progress bar
+  document.getElementById("progressBar").style.width = "0%";
 }
 
+// UPDATE TOTAL TIME
 function updateTotalTime() {
   let mins = Math.floor(totalSeconds / 60);
   let secs = totalSeconds % 60;
+
   document.getElementById("totalTime").innerText =
     `${mins} minutes ${secs} seconds`;
 }
 
-function updateHistory() {
+// ADD HISTORY
+function addToHistory(subject, mins, secs) {
+  history.push(`${subject} – ${mins}m ${secs}s`);
+
   const list = document.getElementById("history");
   list.innerHTML = "";
 
   history.forEach(item => {
-    const li = document.createElement("li");
+    let li = document.createElement("li");
     li.innerText = item;
     list.appendChild(li);
   });
