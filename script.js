@@ -13,16 +13,17 @@ function startSession() {
   }
 
   if (timer !== null) return;
+document.getElementById("progressBar").style.width = "0%";
 
   seconds = 0;
-  document.getElementById("result").innerText = "";
+  document.getElementById("progressBar").style.width = "0%";
 
   timer = setInterval(() => {
     seconds++;
 
     // ⭐ Progress Bar Movement
-    document.getElementById("progressBar").style.width =
-      (seconds % 100) + "%";
+   let progress = Math.min(seconds * 2, 100);
+   document.getElementById("progressBar").style.width = progress + "%";
 
     let mins = Math.floor(seconds / 60);
     let secs = seconds % 60;
@@ -85,3 +86,4 @@ function addToHistory(subject, mins, secs) {
 function toggleDarkMode() {
   document.body.classList.toggle("dark");
 }
+
