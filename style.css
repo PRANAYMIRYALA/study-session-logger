@@ -112,10 +112,11 @@ body.dark input {
 
 #progressBar{
   height:100%;
-  width:30%;
+  width:0%;
   background:linear-gradient(90deg,#00f5d4,#00bbf9);
   border-radius:10px;
 }
+
 
 
 
