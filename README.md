@@ -2,7 +2,7 @@
 # Study Session Logger
 
 🚀 Live Demo:
-https://pranaymiriyala.github.io/study-session-logger/
+https://pranaymiryala.github.io/study-session-logger/
 
 A simple web app to track focused study sessions using "ChatGPT AI " with HTML, CSS, and JavaScript.
 
@@ -12,5 +12,6 @@ A simple web app to track focused study sessions using "ChatGPT AI " with HTML, 
 - Recent study session history
 - Dark mode toggle
 - Live deployed using GitHub Pages
+
 
 
